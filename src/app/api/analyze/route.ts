@@ -36,6 +36,8 @@ export async function POST(req: NextRequest) {
       });
       
       pdfParser.on('pdfParser_dataReady', (pdfData: any) => {
+        //log the pdf data
+        console.log('[ANALYZE] PDF data:', pdfData);
         console.log('[ANALYZE] PDF parsing completed successfully');
         const extractedText = pdfParser.getRawTextContent();
         console.log('[ANALYZE] Extracted text length:', extractedText.length, 'characters');
