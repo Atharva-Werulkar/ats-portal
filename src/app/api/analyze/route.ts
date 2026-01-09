@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     const buffer = Buffer.from(await file.arrayBuffer());
 
     const text = await new Promise<string>((resolve, reject) => {
-      const pdfParser = new PDFParser(null, 1); // 1 = text content only
+      const pdfParser = new PDFParser(null, true); // true = text content only
 
       pdfParser.on('pdfParser_dataError', (errData: any) => reject(errData.parserError));
       
